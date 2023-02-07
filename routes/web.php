@@ -14,3 +14,4 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'BookController@check');
+Route::get('/', 'BookController@check');
