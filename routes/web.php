@@ -18,5 +18,7 @@ Route::get('/books/create', 'BookController@create');
 Route::get('/books/update', 'BookController@update');
 Route::get('/books/delete', 'BookController@delete');
 
-Route::get('/books/view', 'BookController@view');
+Route::get('/main', 'MainController@view');
+Route::get('/authors', 'AuthorsController@view');
+Route::get('/table', 'TableController@view');
 
