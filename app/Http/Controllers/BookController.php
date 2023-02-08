@@ -69,8 +69,13 @@ class BookController extends Controller
 
     public function delete()
     {
-        $book = Book::find(6);
+        $book = Book::find(6); //withTrasged() this is restore
         $book->delete();
         dd('deleted');
+    }
+    public function view()
+    {
+        $books = Book::all();
+        return view('books', compact('books'));
     }
 }
