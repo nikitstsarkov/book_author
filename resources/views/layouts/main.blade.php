@@ -9,6 +9,15 @@
 </head>
 <body>
 <div>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="{{ route('main.view') }}">Main</a> </li>
+                <li><a href="{{ route('table.view') }}">Books</a> </li>
+                <li><a href="{{ route('author.view') }}">Authors</a> </li>
+            </ul>
+        </nav>
+    </div>
     @yield('content')
 </div>
 </body>

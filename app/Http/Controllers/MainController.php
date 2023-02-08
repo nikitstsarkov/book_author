@@ -8,7 +8,6 @@ class MainController extends Controller
 {
     public function view()
     {
-        $books = Book::all();
-        return view('books', compact('books'));
+        return view('main');
     }
 }
