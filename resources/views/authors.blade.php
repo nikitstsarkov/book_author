@@ -1,7 +1,7 @@
 @extends('layouts.main')
 @section('content')
     <div>
-        this is author
+        this is authors
     </div>
 @endsection
 
