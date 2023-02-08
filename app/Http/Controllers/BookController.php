@@ -8,28 +8,37 @@ class BookController extends Controller
 {
     public function books()
     {
-        $book = Book::find(1);
-        dump($book);
+        $books = Book::all();
+        foreach ($books as $book)
+        {
+            dump($book->author);
+        }
+        dd('all author');
     }
 
 
     public function create()
     {
-        $postsArr = [
+        $booksArr =
             [
-                'books' => 'book1',
-
-
+            [
+                'books' => 'Мёртвые души',
+                'author' => 'Николай Гоголь',
+                'description' => 'Сатира',
             ],
             [
-                'books' => 'book1',
-
+                'books' => 'Ревизор',
+                'author' => 'Николай Гоголь',
+                'description' => 'Комедия',
+            ],[
+                'books' => 'Воскресение',
+                'author' => 'Лев Толстой',
+                'description' => 'Роман',
             ],
         ];
-        Book::create([   // это для создания таблицы
-            'books' => 'book1',
-        ]);
 
+        foreach ($booksArr as $item)
+        Book::create($item);
 
         dd('created');
     }
