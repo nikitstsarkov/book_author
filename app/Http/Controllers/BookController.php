@@ -12,8 +12,8 @@ class BookController extends Controller
         foreach ($books as $book)
         {
             dump($book->author);
+            dump($book->books);
         }
-        dd('all author');
     }
 
 

@@ -12,13 +12,23 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+//первая часть задания crud
 Route::get('/books', 'BookController@books');
 Route::get('/books/create', 'BookController@create');
 Route::get('/books/update', 'BookController@update');
 Route::get('/books/delete', 'BookController@delete');
 
+//вывод списка публичная часть
 Route::get('/main', 'MainController@view')->name('main.view');
 Route::get('/authors', 'AuthorsController@view')->name('author.view');
-Route::get('/table', 'TableController@view')->name('table.view');
+Route::get('/table', 'TableController@view')->name('table.view');  //реализация 4 пункта выдачи view book надо красиво оформить
+
+Route::get('/table/{book}', 'TableController@show')->name('book.show'); //реализация вывода книги по id
+Route::get('/table/{book}', 'TableController@show')->name('book.show'); //реализация вывода книги по id
+
+
+//еще где то вывести список авторов с указание количества книг в первую часть задания
+//и в первой ссылке как то вывести список кник с наименование автора
+
+
 
