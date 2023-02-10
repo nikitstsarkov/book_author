@@ -49,5 +49,9 @@ class TableController extends Controller
         return redirect()->route('book.show', $book->id);
     }
 
-
+    public function destroy(Book $book)
+    {
+        $book->delete();
+        return redirect()->route('book.view');
+    }
 }
