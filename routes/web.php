@@ -21,10 +21,15 @@ Route::get('/books/delete', 'BookController@delete');
 //вывод списка публичная часть
 Route::get('/main', 'MainController@view')->name('main.view');
 Route::get('/authors', 'AuthorsController@view')->name('author.view');
-Route::get('/table', 'TableController@view')->name('table.view');  //реализация 4 пункта выдачи view book надо красиво оформить
 
+Route::get('/table', 'TableController@view')->name('book.view');  //реализация 4 пункта выдачи view book надо красиво оформить
+Route::get('/table/create', 'TableController@create')->name('book.create');
+Route::post('/table', 'TableController@store')->name('book.store');
 Route::get('/table/{book}', 'TableController@show')->name('book.show'); //реализация вывода книги по id
-Route::get('/table/{book}', 'TableController@show')->name('book.show'); //реализация вывода книги по id
+Route::get('/table/{book}/edit', 'TableController@edit')->name('book.edit');
+Route::patch('/table/{book}', 'TableController@update')->name('book.update');
+Route::delete('/table/{book}', 'TableController@destroy')->name('book.delete');
+
 
 
 //еще где то вывести список авторов с указание количества книг в первую часть задания

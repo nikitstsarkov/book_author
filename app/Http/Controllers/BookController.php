@@ -69,7 +69,7 @@ class BookController extends Controller
 
     public function delete()
     {
-        $book = Book::find(6); //withTrasged() this is restore
+        $book = Book::find(11); //withTrasged() this is restore
         $book->delete();
         dd('deleted');
     }

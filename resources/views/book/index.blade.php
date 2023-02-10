@@ -1,8 +1,11 @@
 @extends('layouts.main')
 @section('content')
     <div>
+        <div>
+            <a href="{{ route('book.create') }}" class="btn btn-primary mb-3"> Add one</a>
+        </div>
             @foreach($books as $book)
-                <div>{{ $book->id }}. {{ $book->books }}  {{ $book->author }}</div>
+                <div><a href="{{ route('book.show', $book->id) }}">{{ $book->id }}. {{ $book->books }}  {{ $book->author }}</a></div>
             @endforeach
     </div>
 @endsection

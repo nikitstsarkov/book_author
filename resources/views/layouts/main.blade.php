@@ -18,7 +18,7 @@
                         <a class="nav-link" href="{{ route('main.view') }}">Main <span class="sr-only"></span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('table.view') }}">Books</a>
+                        <a class="nav-link" href="{{ route('book.view') }}">Books</a>
                     </li>                    <li class="nav-item">
                         <a class="nav-link" href="{{ route('author.view') }}">Authors</a>
                     </li>
