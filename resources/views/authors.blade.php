@@ -1,7 +1,8 @@
 @extends('layouts.main')
 @section('content')
     <div>
-        <table class="table table-dark">
+        <table
+            table class="table table-dark">
             <thead>
             <tr>
                 <th scope="col">id</th>
@@ -22,6 +23,8 @@
                 <td>Антон Чехов </td>
             </tr>
             </tbody>
+        </table>
+
         </table>
     </div>
 @endsection

@@ -8,12 +8,16 @@ class BookController extends Controller
 {
     public function books()
     {
-        $books = Book::all();
-        foreach ($books as $book)
-        {
-            dump($book->author);
-            dump($book->books);
+        $authors = Book::all()->pluck('author')->toArray();
+        //dd($authors);
+        //$count = Book::where('author', $authors[0])->count();
+        //dd($count);
+        $counts = [];
+        foreach($authors as $key => $val) {
+            $counts[$val] = Book::where('author', $val)->count();
         }
+
+        dd($counts);
     }
 
 
