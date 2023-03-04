@@ -18,6 +18,7 @@ Route::get('/books/create', 'BookController@create');
 Route::get('/books/update', 'BookController@update');
 Route::get('/books/delete', 'BookController@delete');
 
+
 //вывод списка публичная часть
 Route::get('/main', 'MainController@view')->name('main.view');
 Route::get('/authors', 'AuthorsController@view')->name('author.view');
@@ -29,6 +30,9 @@ Route::get('/table/{book}', 'TableController@show')->name('book.show'); //реа
 Route::get('/table/{book}/edit', 'TableController@edit')->name('book.edit');
 Route::patch('/table/{book}', 'TableController@update')->name('book.update');
 Route::delete('/table/{book}', 'TableController@destroy')->name('book.delete');
+
+
+Route::get('/book', 'BookController@book');
 
 
 

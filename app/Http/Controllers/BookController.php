@@ -26,30 +26,18 @@ class BookController extends Controller
         $booksArr =
             [
             [
-                'books' => 'Мёртвые души',
-                'author' => 'Николай Гоголь',
-                'description' => 'Сатира',
+                'title' => 'Мёртвые души',
             ],
             [
-                'books' => 'Ревизор',
-                'author' => 'Николай Гоголь',
-                'description' => 'Комедия',
+                'title' => 'Ревизор',
             ],[
-                'books' => 'Воскресение',
-                'author' => 'Лев Толстой',
-                'description' => 'Роман',
+                'title' => 'Воскресение',
             ],[
-                'books' => 'Мастер и Маргарита',
-                'author' => 'Михаил Булгаков',
-                'description' => 'Роман',
+                'title' => 'Война и мир',
+
             ],[
-                'books' => 'Война и мир',
-                'author' => 'Лев Толстой',
-                'description' => 'Исторический',
-            ],[
-                'books' => 'Драма на охоте',
-                'author' => 'Антон Чехов ',
-                'description' => 'Драма',
+                'title' => 'Драма на охоте',
+
             ]
         ];
 
@@ -81,5 +69,11 @@ class BookController extends Controller
     {
         $books = Book::all();
         return view('books', compact('books'));
+    }
+
+    public function book()
+    {
+        $books = Book::with('author')->get();
+        return view('book.index', compact('books'));
     }
 }

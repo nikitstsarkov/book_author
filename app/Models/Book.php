@@ -13,4 +13,9 @@ class Book extends Model
 
     protected $table = 'books';
     protected $guarded = [];
+
+    public function author()
+    {
+        return $this->hasOneThrough(Author::class, book_author::class, 'author_id', 'id');
+    }
 }
