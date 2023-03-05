@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\Author;
 use App\Models\Book;
 use Illuminate\Http\Request;
 
@@ -21,59 +22,52 @@ class BookController extends Controller
     }
 
 
-    public function create()
-    {
-        $booksArr =
-            [
-            [
-                'title' => 'Мёртвые души',
-            ],
-            [
-                'title' => 'Ревизор',
-            ],[
-                'title' => 'Воскресение',
-            ],[
-                'title' => 'Война и мир',
-
-            ],[
-                'title' => 'Драма на охоте',
-
-            ]
-        ];
-
-        foreach ($booksArr as $item)
-        Book::create($item);
-
-        dd('created');
-    }
-
-    public function update()
-    {
-        $book = Book::find(4);
-
-        $book->update([
-            'books' => 'Драма на охоте',
-            'author' => 'Антон Чехов ',
-            'description' => 'Драма',
-        ]);
-        dd("updated");
-    }
-
-    public function delete()
-    {
-        $book = Book::find(11); //withTrasged() this is restore
-        $book->delete();
-        dd('deleted');
-    }
     public function view()
     {
         $books = Book::all();
-        return view('books', compact('books'));
+        return view('book.index', compact('books'));
     }
 
-    public function book()
+    public function create()
     {
-        $books = Book::with('author')->get();
-        return view('book.index', compact('books'));
+        $authors = Author::all();
+        return view('book.create', compact('authors'));
+    }
+
+    public function store(Request $request)
+    {
+        $data = request()->validate([
+            'title' => 'string',
+        ]);
+        $book = Book::create($data);
+        $book->author()->sync([$request->author]);
+        return redirect()->route('book.view');
+    }
+
+    public function show(Book $book)
+    {
+        return view('book.show', compact('book'));
+    }
+
+    public function edit(Book $book)
+    {
+        $authors = Author::all();
+        return view('book.edit', compact('book', 'authors'));
+    }
+
+    public function update(Book $book, Request $request)
+    {
+        $data = request()->validate([
+            'title' => 'string',
+        ]);
+        $book->update($data);
+        $book->author()->sync([$request->author]);
+        return redirect()->route('book.show', $book->id);
+    }
+
+    public function destroy(Book $book)
+    {
+        $book->delete();
+        return redirect()->route('book.view');
     }
 }

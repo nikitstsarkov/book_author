@@ -20,9 +20,7 @@ class TableController extends Controller
     public function store()
     {
         $data = request()->validate([
-            'books' => 'string',
-            'author' => 'string',
-            'description' => 'string',
+            'title' => 'string',
         ]);
         Book::create($data);
         return redirect()->route('book.view');
@@ -41,9 +39,7 @@ class TableController extends Controller
     public function update(Book $book)
     {
         $data = request()->validate([
-            'books' => 'string',
-            'author' => 'string',
-            'description' => 'string',
+            'title' => 'string',
         ]);
         $book->update($data);
         return redirect()->route('book.show', $book->id);

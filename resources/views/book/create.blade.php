@@ -5,15 +5,15 @@
             @csrf
             <div class="form-group">
                 <label for="book">Book</label>
-                <input type="text" name="books" class="form-control" id="book" placeholder="Book">
+                <input type="text" name="title" class="form-control" id="book" placeholder="Book">
             </div>
             <div class="form-group">
                 <label for="Author">Author</label>
-                <input type="text" name="author" class="form-control" id="Author" placeholder="Author">
-            </div>
-            <div class="form-group">
-                <label for="Description">Description</label>
-                <input type="text" name="description" class="form-control" id="Description" placeholder="Description">
+                <select class="form-select" name="author">
+                    @foreach ($authors as $author)
+                        <option value="{{ $author->id}}">{{ $author->title }}</option>
+                    @endforeach
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Create</button>
         </form>

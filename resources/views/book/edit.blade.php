@@ -6,15 +6,15 @@
             @method('patch')
             <div class="form-group">
                 <label for="book">Book</label>
-                <input type="text" name="books" class="form-control" id="book" placeholder="Book" value="{{ $book->books }}">
+                <input type="text" name="title" class="form-control" id="book" placeholder="Book" value="{{ $book->title }}">
             </div>
             <div class="form-group">
                 <label for="Author">Author</label>
-                <input type="text" name="author" class="form-control" id="Author" placeholder="Author" value="{{ $book->author }}">
-            </div>
-            <div class="form-group">
-                <label for="Description">Description</label>
-                <input type="text" name="description" class="form-control" id="Description" placeholder="Description" value="{{ $book->description }}">
+                <select class="form-select" name="author">
+                    @foreach ($authors as $author)
+                        <option value="{{ $author->id}}" @if ($author->id === $book->author[0]->id) selected @endif>{{ $author->title }}</option>
+                    @endforeach
+                </select>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>

@@ -9,7 +9,8 @@ class AuthorsController extends Controller
 {
     public function view()
     {
-        return view('title');
+        $authors = Author::all();
+        return view('authors', compact('authors'));
     }
 
     public function create()

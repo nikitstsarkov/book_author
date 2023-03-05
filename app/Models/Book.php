@@ -16,6 +16,6 @@ class Book extends Model
 
     public function author()
     {
-        return $this->hasOneThrough(Author::class, book_author::class, 'author_id', 'id');
+        return $this->belongsToMany(Author::class, 'book_author');
     }
 }
